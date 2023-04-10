@@ -1,36 +1,14 @@
-import React, { useEffect, useState } from "react";
-import Todo from "./Todo";
-import TodoForm from "./TodoForm";
+import React, { useState } from "react";
+import Todo from "./components/Todo";
+import TodoForm from "./components/TodoForm";
 import "./App.css";
 
 const App = () => {
   const [todos, setTodos] = useState([]);
-  const [permission, setPermission] = useState("default");
 
   const addTodo = (todo) => {
     setTodos([...todos, todo]);
   };
-
-  useEffect(() => {
-    if (Notification.permission !== "granted") {
-      Notification.requestPermission().then((permission) => {
-        setPermission(permission);
-      });
-    } else {
-      setPermission(Notification.permission);
-    }
-  }, []);
-
-  useEffect(() => {
-    todos.forEach((todo) => {
-      if (todo.dueDate && !todo.completed) {
-        const dueDate = new Date(todo.dueDate);
-        if (dueDate.getTime() < Date.now() && permission === "granted") {
-          new Notification(`Task ${todo.text} is due!`);
-        }
-      }
-    });
-  }, [todos, permission]);
 
   const completeTodo = (id) => {
     const updatedTodos = todos.map((todo) => {

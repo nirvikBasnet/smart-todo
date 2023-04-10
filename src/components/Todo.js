@@ -1,5 +1,5 @@
 import React from "react";
-import "./Todo.css";
+import "../styles/Todo.css";
 
 const Todo = ({ todo, completeTodo, deleteTodo }) => {
   const handleCheckboxClick = () => {
@@ -9,15 +9,6 @@ const Todo = ({ todo, completeTodo, deleteTodo }) => {
   const handleDeleteClick = () => {
     deleteTodo(todo.id);
   };
-
-  const formattedDate = todo.dueDate.toLocaleString("en-US", {
-    weekday: "short",
-    month: "short",
-    day: "numeric",
-    hour: "numeric",
-    minute: "numeric",
-    hour12: true,
-  });
 
   return (
     <div className="todo-container">
@@ -35,7 +26,6 @@ const Todo = ({ todo, completeTodo, deleteTodo }) => {
       >
         {todo.text}
       </span>
-      <span className="date">{formattedDate}</span>
       <button className="delete" onClick={handleDeleteClick}>
         Delete
       </button>

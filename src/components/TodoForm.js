@@ -1,18 +1,14 @@
 import React, { useState } from "react";
-import Datetime from "react-datetime";
-import "react-datetime/css/react-datetime.css";
-import "./TodoForm.css";
+import "../styles/TodoForm.css";
 
 function TodoForm({ addTodo }) {
   const [text, setText] = useState("");
-  const [dueDate, setDueDate] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
     const id = Date.now();
-    addTodo({ id, text, dueDate, completed: false });
+    addTodo({ id, text, completed: false });
     setText("");
-    setDueDate("");
   }
 
   return (
@@ -23,11 +19,9 @@ function TodoForm({ addTodo }) {
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
-      <Datetime
-        value={dueDate}
-        onChange={(value) => setDueDate(value.toDate())}
-      />
-      <button type="submit">Add Todo</button>
+      <button className="submitButton" type="submit">
+        Add Todo
+      </button>
     </form>
   );
 }
