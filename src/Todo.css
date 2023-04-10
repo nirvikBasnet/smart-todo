@@ -1,0 +1,19 @@
+.todo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.todo-item {
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.date {
+  margin-left: 10px;
+}
+
+.delete {
+  margin-left: 10px;
+}
