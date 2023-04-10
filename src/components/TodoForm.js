@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Datetime from "react-datetime";
 import "react-datetime/css/react-datetime.css";
-import "./TodoForm.css";
+import "../styles/TodoForm.css";
 
 function TodoForm({ addTodo }) {
   const [text, setText] = useState("");
